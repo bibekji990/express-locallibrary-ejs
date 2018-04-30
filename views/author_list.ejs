@@ -1,0 +1,10 @@
+<h1> <%= title %></h1>
+  <ul>
+      <% for(author in author_list) { %>
+           <li>
+               <a href="<%=author_list[author].url%>"><%=author_list[author].name %></a> (<%=author_list[author].lifespan%>) 
+          </li>
+          
+     <% };%>
+
+  </ul>

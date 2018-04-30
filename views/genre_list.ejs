@@ -1,0 +1,10 @@
+<h1> <%= title %></h1>
+ 
+  <ul>
+      <% for(var i = 0; i < list_genres.length; i++ ) { %>
+            <li>
+                <a href= "<%=list_genres[i].url%>"><%=list_genres[i].name %></a>
+             </li>
+       <% }; %>
+
+  </ul>

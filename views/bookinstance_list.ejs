@@ -1,0 +1,34 @@
+<h1> <%= title %></h1>
+  <ul>
+      <% for(value in bookinstance_list) { %>
+           <li>
+               <a href="<%=bookinstance_list[value].url%>"><%=bookinstance_list[value].book.title%> : <%= bookinstance_list[value].imprint%> </a> -
+
+          <% if(bookinstance_list[value].status == 'Available') { %>  
+                <span class="text-success"> <%= bookinstance_list[value].status %> </span>
+           <% } 
+      
+              else if(bookinstance_list[value].status == 'Maintenance'){ %>  
+                 <span class="text-danger"> <%= bookinstance_list[value].status %> </span>
+           <% } 
+      
+              else { %>  
+                 <span class="text-danger"> <%= bookinstance_list[value].status %> </span>
+           <% } %>
+
+           <% if(bookinstance_list[value].status != 'Available'){ %>  
+                <span> (Due: <%= bookinstance_list[value].due_back_formatted %>)</span>
+           <% } %>
+
+      </li>
+           
+      
+  <% };%>
+
+  </ul>
+
+
+
+
+
+

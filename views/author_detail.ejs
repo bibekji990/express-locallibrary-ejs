@@ -1,0 +1,15 @@
+<h1> Author <%= author.name %></h1>
+<p><%= author.lifespan%> </p>
+
+ <div style='margin-left:20px;margin-top:20px'>
+  <h4>Books</h4>
+
+   <dl>
+      <% for(book in author_books) { %>
+       <dt> <a href="<%=author_books[book].url%>"><%=author_books[book].title %></a> </dt> 
+         <dd> <%=author_books[book].summary%> </dd>
+       <%  };%>
+
+  </dl>
+
+</div>

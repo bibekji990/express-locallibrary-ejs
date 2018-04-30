@@ -1,0 +1,20 @@
+<h1> Genre  </h1>
+
+ <div style='margin-left:20px;margin-top:20px'>
+   <h4>Books</h4>
+
+  
+
+ <dl>
+      <% for(book in genre_books) { %>
+       <dt> <a href= "<%=genre_books[book].url%>"><%=genre_books[book].title %></a> </dt> 
+        <dd> <%=genre_books[book].summary%> </dd>
+        
+         
+      <% }; %>
+      
+
+  </dl>
+
+</div>
+

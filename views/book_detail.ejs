@@ -1,0 +1,44 @@
+<% var index = 0; %>
+<h1> <%=title%> : <%=book["title"]%></h1>
+<p><strong> Author:  </strong> <a href= "<%=book["author"].url%>"> <%=book["author"]["name"]%> </a></p>
+
+<p><strong> Summary: </strong> <%=book["summary"]%> </p>
+<p><strong> ISBN: </strong> <%=book["isbn"]%> </p>
+<p><strong> Genre: </strong>
+ <% for(let i = 0; i < book["genre"].length; i++){ %>
+   <a href="<%=book["genre"][i].url%>"> <%=book["genre"][i].name%></a>
+      <%# if (index < book["genre"].length - 1) { #%>
+           <span>&#44;</span>  
+     <%#  } #%>
+       <%#= index++; #%>
+ <% } %>
+</p>
+  
+
+  <div style='margin-left:20px;margin-top:20px'>
+    <h4> Copies </h4>
+    
+   <% for(let i = 0; i < book_instances.length; i++){  %>
+      <hr>
+    <% if(book_instances[i]["status"] == 'Available') { %>  
+                <p class="text-success"> <%= book_instances[i]["status"] %> </p>
+           <% }
+      
+              else if(book_instances[i]["status"] == 'Maintenance'){ %>  
+                 <p class="text-danger"> <%= book_instances[i]["status"] %> </p>
+           <% } 
+      
+              else { %>  
+                 <p class="text-warning"> <%= book_instances[i]["status"] %> </p>
+           <% } %>
+
+           <p><strong>Imprint:</strong> <%=book_instances[i].imprint%> </p>
+
+           <% if(book_instances[i]["status"] != 'Available'){ %>  
+                <p> <strong> Due Back </strong>: <%= book_instances[i].due_back %></p>
+           <% } %>
+
+      <p><strong>Id</strong>: <a href="<%=book_instances[i].url%>">  <%=book_instances[i].id%> </a> </p>
+           
+   <% } %>
+  </div>

@@ -9,17 +9,8 @@
   <label for="author">Author:</label>
   <select class="form-control" id="author" type="select" placeholder="Select author" name="author" required="true">
      <% for(let i = 0; i < authors.length; i++){ %>
-        <% if (typeof book != "undefined") { %>
-
-    <option value="<%= authors[i]["_id"]%>" selected="<% authors[i]["_id"].toString() == book["author"]["_id"] || authors[i]["_id"].toString() == book["author"] ? "selected" : false %>" <%= authors[i]["name"]%></option>
-
-  <% }
-
-  else { %>
-
-    <option value="<%=authors[i]["_id"]%>"> <%= authors[i]["name"]%> </option>
-
- <% } %>
+     
+    <option  value="<%=authors[i]["_id"]%>"> <%= authors[i].name%> </option>
  <% } %>
   </select>
 </div>
@@ -39,7 +30,7 @@
     <div>
     <% for(let genre = 0; genre < genres.length; genre++ ) { %>
           <div style="display: inline; padding-right:10px">
-  <input class="checkbox-input" type="checkbox" name="genre" id="<%=genres[genre]["_id"]%>" value="<%=genres[genre]["_id"]%>" checked="<%=genres[genre]["checked"]%>">
+  <input class="checkbox-input" type="checkbox" name="genre" id="<%=genres[genre]["_id"]%>" value="<%=genres[genre]["_id"]%>">
   <label for="<%=genres[genre]["_id"]%>"> <%=genres[genre]["name"]%> </label>
       </div>
     <% } %>

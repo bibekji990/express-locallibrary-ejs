@@ -40,7 +40,7 @@ hr{
 }
 
 input[type=text], input[type=textarea],
-select, .form-control{
+select{
     background-color:#E4EBE1 !important;
     color: #000000;
 }

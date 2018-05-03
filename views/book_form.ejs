@@ -2,22 +2,20 @@
 <form method="POST" action="">
   <div class="form-group">
     <label for="title">Title:</label>
-    <input class="form-control" id="title" type="text" placeholder="Name of book" name="title" required="true" value="<%=("undefined" === typeof book) ? "" : book["title"];%>" >
+    <input class="form-control" id="title" type="text" placeholder="Name of book" name="title" required="true" value="<%="undefined" === typeof book ? "" : book["title"];%>" >
   </div>
+  
   <div class="form-group">
-    <label for="author">Author:</label>
-    <select class="form-control" id="author" type="select" placeholder="Select author" name="author" required="true">
-      
-     <%  for(let author = 0; author < authors.length; author++) {  %>
-             <% if(typeof book !== "undefined") { %>
-      <option value="<%=authors[author]["_id"]%>"> <%=author["name"]%></option>    
-         <% }
-   else { %>
-<option  value="<%=authors[author]["_id"]%>"> <%=authors[author]["name"]%> </option>
-<% } %>
-<%}%>
-</select>
-  </div>
+  <label for="author">Author:</label>
+  <select class="form-control" id="author" type="select" placeholder="Select author" name="author" required="true">
+     <% for(let i = 0; i < authors.length; i++){ %>
+     
+    <option  value="<%=authors[i]["_id"]%>"> <%= authors[i].name%> </option>
+ <% } %>
+  </select>
+</div>
+  
+  
   <div class="form-group">
     <label for="summary">Summary:</label>
     <input class="form-control" id="summary" type="textarea" placeholder="Summary" name="summary" value="<%=("undefined" === typeof book) ? "" : book["summary"];%>" required="true">
@@ -32,7 +30,7 @@
     <div>
     <% for(let genre = 0; genre < genres.length; genre++ ) { %>
           <div style="display: inline; padding-right:10px">
-  <input class="checkbox-input" type="checkbox" name="genre" id="<%=genres[genre]["_id"]%>" value="<%=genres[genre]["_id"]%>" checked="<%=genres[genre]["checked"]%>">
+  <input class="checkbox-input" type="checkbox" name="genre" id="<%=genres[genre]["_id"]%>" value="<%=genres[genre]["_id"]%>">
   <label for="<%=genres[genre]["_id"]%>"> <%=genres[genre]["name"]%> </label>
       </div>
     <% } %>

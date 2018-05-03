@@ -41,4 +41,19 @@
       <p><strong>Id</strong>: <a href="<%=book_instances[i].url%>">  <%=book_instances[i].id%> </a> </p>
            
    <% } %>
+   
+    <% if(book_instances.length == 0) { %>
+         <p>There are no copies of this book at the moment. Please check-in later.</p>
+  <% } %>
+  
+  
   </div>
+  
+
+  <hr>
+  
+  <% function update_url(){return book.url + "/update"}; %>
+    
+  <p><a href=" <%=update_url();%> ">Update Book</a></p>
+  
+ 

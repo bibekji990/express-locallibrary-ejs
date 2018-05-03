@@ -1,5 +1,5 @@
-<h1> Author <%= author.name %></h1>
-<p><%= author.lifespan%> </p>
+<h1> Author : <%= author.name %></h1>
+<p><%= author["lifespan"]%> </p>
 
  <div style='margin-left:20px;margin-top:20px'>
   <h4>Books</h4>
@@ -11,5 +11,19 @@
        <%  };%>
 
   </dl>
-
+  
+  <% if(author_books.length == 0) { %>
+     <p>We don't have any books by this author for now. Please check-in later.</p>
+  <% } %>
 </div>
+
+<% function delete_url (){return author.url + "/delete"}; %>
+
+<hr>
+<p>
+    <a href="<%= delete_url();   %>"> Delete author</a>
+  
+</p>
+
+
+  
